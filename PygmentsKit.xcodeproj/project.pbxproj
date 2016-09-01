@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24B103F51D78526900C526BB /* PygmentsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B103EB1D78526900C526BB /* PygmentsKit.framework */; };
+		24B103FA1D78526900C526BB /* PygmentsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B103F91D78526900C526BB /* PygmentsKitTests.swift */; };
+		24B103FC1D78526900C526BB /* PygmentsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B103EE1D78526900C526BB /* PygmentsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24B103F61D78526900C526BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B103E21D78526900C526BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B103EA1D78526900C526BB;
+			remoteInfo = PygmentsKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24B103EB1D78526900C526BB /* PygmentsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PygmentsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B103EE1D78526900C526BB /* PygmentsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PygmentsKit.h; sourceTree = "<group>"; };
+		24B103EF1D78526900C526BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24B103F41D78526900C526BB /* PygmentsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PygmentsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B103F91D78526900C526BB /* PygmentsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PygmentsKitTests.swift; sourceTree = "<group>"; };
+		24B103FB1D78526900C526BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24B103E71D78526900C526BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B103F11D78526900C526BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B103F51D78526900C526BB /* PygmentsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24B103E11D78526900C526BB = {
+			isa = PBXGroup;
+			children = (
+				24B103ED1D78526900C526BB /* PygmentsKit */,
+				24B103F81D78526900C526BB /* PygmentsKitTests */,
+				24B103EC1D78526900C526BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		24B103EC1D78526900C526BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24B103EB1D78526900C526BB /* PygmentsKit.framework */,
+				24B103F41D78526900C526BB /* PygmentsKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24B103ED1D78526900C526BB /* PygmentsKit */ = {
+			isa = PBXGroup;
+			children = (
+				24B103EE1D78526900C526BB /* PygmentsKit.h */,
+				24B103EF1D78526900C526BB /* Info.plist */,
+			);
+			path = PygmentsKit;
+			sourceTree = "<group>";
+		};
+		24B103F81D78526900C526BB /* PygmentsKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				24B103F91D78526900C526BB /* PygmentsKitTests.swift */,
+				24B103FB1D78526900C526BB /* Info.plist */,
+			);
+			path = PygmentsKitTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		24B103E81D78526900C526BB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B103FC1D78526900C526BB /* PygmentsKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		24B103EA1D78526900C526BB /* PygmentsKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24B103FF1D78526900C526BB /* Build configuration list for PBXNativeTarget "PygmentsKit" */;
+			buildPhases = (
+				24B103E61D78526900C526BB /* Sources */,
+				24B103E71D78526900C526BB /* Frameworks */,
+				24B103E81D78526900C526BB /* Headers */,
+				24B103E91D78526900C526BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PygmentsKit;
+			productName = PygmentsKit;
+			productReference = 24B103EB1D78526900C526BB /* PygmentsKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		24B103F31D78526900C526BB /* PygmentsKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24B104021D78526900C526BB /* Build configuration list for PBXNativeTarget "PygmentsKitTests" */;
+			buildPhases = (
+				24B103F01D78526900C526BB /* Sources */,
+				24B103F11D78526900C526BB /* Frameworks */,
+				24B103F21D78526900C526BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				24B103F71D78526900C526BB /* PBXTargetDependency */,
+			);
+			name = PygmentsKitTests;
+			productName = PygmentsKitTests;
+			productReference = 24B103F41D78526900C526BB /* PygmentsKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24B103E21D78526900C526BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Niklas Vangerow";
+				TargetAttributes = {
+					24B103EA1D78526900C526BB = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = AAPBC93DAB;
+						ProvisioningStyle = Automatic;
+					};
+					24B103F31D78526900C526BB = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = AAPBC93DAB;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 24B103E51D78526900C526BB /* Build configuration list for PBXProject "PygmentsKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 24B103E11D78526900C526BB;
+			productRefGroup = 24B103EC1D78526900C526BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24B103EA1D78526900C526BB /* PygmentsKit */,
+				24B103F31D78526900C526BB /* PygmentsKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24B103E91D78526900C526BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B103F21D78526900C526BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24B103E61D78526900C526BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24B103F01D78526900C526BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24B103FA1D78526900C526BB /* PygmentsKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24B103F71D78526900C526BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24B103EA1D78526900C526BB /* PygmentsKit */;
+			targetProxy = 24B103F61D78526900C526BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		24B103FD1D78526900C526BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		24B103FE1D78526900C526BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		24B104001D78526900C526BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AAPBC93DAB;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PygmentsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		24B104011D78526900C526BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AAPBC93DAB;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = PygmentsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		24B104031D78526900C526BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AAPBC93DAB;
+				INFOPLIST_FILE = PygmentsKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		24B104041D78526900C526BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AAPBC93DAB;
+				INFOPLIST_FILE = PygmentsKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24B103E51D78526900C526BB /* Build configuration list for PBXProject "PygmentsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24B103FD1D78526900C526BB /* Debug */,
+				24B103FE1D78526900C526BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24B103FF1D78526900C526BB /* Build configuration list for PBXNativeTarget "PygmentsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24B104001D78526900C526BB /* Debug */,
+				24B104011D78526900C526BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		24B104021D78526900C526BB /* Build configuration list for PBXNativeTarget "PygmentsKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24B104031D78526900C526BB /* Debug */,
+				24B104041D78526900C526BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 24B103E21D78526900C526BB /* Project object */;
+}

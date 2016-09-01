@@ -1,0 +1,29 @@
+diff --git a/pygments-python/pygments/formatters/other.py b/pygments-python/pygments/formatters/other.py
+index 4945d76..ee3099c 100644
+--- a/pygments-python/pygments/formatters/other.py
++++ b/pygments-python/pygments/formatters/other.py
+@@ -13,6 +13,7 @@ from pygments.formatter import Formatter
+ from pygments.util import OptionError, get_choice_opt
+ from pygments.token import Token
+ from pygments.console import colorize
++from binascii import hexlify
+ 
+ __all__ = ['NullFormatter', 'RawTokenFormatter', 'TestcaseFormatter']
+ 
+@@ -105,14 +106,14 @@ class RawTokenFormatter(Formatter):
+ 
+         if self.error_color:
+             for ttype, value in tokensource:
+-                line = "%s\t%r\n" % (ttype, value)
++                line = "%s\t\'%s\'\n" % (ttype, hexlify(value.encode('utf8')))
+                 if ttype is Token.Error:
+                     write(colorize(self.error_color, line))
+                 else:
+                     write(line)
+         else:
+             for ttype, value in tokensource:
+-                write("%s\t%r\n" % (ttype, value))
++                write("%s\t\'%s\'\n" % (ttype, hexlify(value.encode('utf8'))))
+         flush()
+ 
+ TESTCASE_BEFORE = u'''\

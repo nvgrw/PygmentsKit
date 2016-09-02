@@ -14,7 +14,7 @@ struct Scope {
         case italic = "italic"
     }
     
-    var fontStyle: FontStyle?
+    var fontStyles: [FontStyle]?
     var foreground: NSColor?
     var background: NSColor?
 }
@@ -39,7 +39,19 @@ public struct Theme {
             
             // Set up the scope object
             var scopeObj = Scope()
-            scopeObj.fontStyle = Scope.FontStyle(rawValue: (settings["fontStyle"] as? String) ?? "")
+            scopeObj.fontStyles = {
+                guard let fontStyleString = settings["fontStyle"] as? String else { return nil }
+                
+                var fontStyles: [Scope.FontStyle] = []
+                for component in fontStyleString.components(separatedBy: .whitespaces) {
+                    guard let style = Scope.FontStyle(rawValue: component) else { continue }
+                    
+                    fontStyles.append(style)
+                }
+                
+                // if there are no font styles, return nil
+                return fontStyles.isEmpty ? nil : fontStyles
+            }()
             scopeObj.foreground = {
                 guard let color = settings["foreground"] as? String else { return nil }
                 

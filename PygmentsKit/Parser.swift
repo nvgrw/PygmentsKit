@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import os
 
-/// Parse a string and return NSAttributedString attributes
+/// Parse a string and return the tokens and their associated range
 public class Parser {
     
-    public typealias AttributeParserCallback = (_ range: NSRange, _ attributes: [String: Any]) -> Void
+    private static let log = OSLog(subsystem: "uk.notro.PygmentsKit", category: "Parser")
+    
+    public typealias ParserCallback = (_ range: NSRange, _ token: Token) -> Void
     
     public enum ParserError: Error {
         case noPygmentizeScript
@@ -19,6 +22,7 @@ public class Parser {
         case pygmentizeStderr(String)
     }
     
+    @available(*, unavailable)
     private init() { }
     
     /// Obtain tokens from pygments for the code and chosen lexer
@@ -31,7 +35,7 @@ public class Parser {
         
         // Get the pygments script path
         let bundle = Bundle(for: Parser.self)
-        guard let pygmentsScript = bundle.resourceURL?.appendingPathComponent("pygments-python", isDirectory: true).appendingPathComponent("pygmentize") else {
+        guard let pygmentsScript = bundle.resourceURL?.appendingPathComponent("pygmentize") else {
             throw ParserError.noPygmentizeScript
         }
         
@@ -39,7 +43,7 @@ public class Parser {
             throw ParserError.cantEncodeCodeString
         }
         
-        print("Found pygmentize at", pygmentsScript.path)
+        os_log("Found pygmentize at %{public}s", log: Parser.log, type: .debug, pygmentsScript.path)
         
         // Set up the process
         let pyg = Process()
@@ -121,13 +125,14 @@ public class Parser {
         return tokens
     }
     
-    /// Parse a code string using a pygments lexer and colour it with the provided theme.
+    /// Parse a code string using a pygments lexer and obtain the tokens and their range.
     ///
     /// - parameter code:     Code to parse.
     /// - parameter lexer:    Lexer to tokenise with.
-    /// - parameter theme:    Theme to use for colouring.
-    /// - parameter callback: Called with range and attributes whenever a token is encountered.
-    public static func parse(_ code: String, with lexer: String, theme: Theme, callback: AttributeParserCallback) throws {
+    /// - parameter callback: Called with a range and its token.
+    ///
+    /// - throws: A ParserError
+    public class func parse(_ code: String, with lexer: String, callback: ParserCallback) throws {
         let tokens = try tokenize(code, with: lexer)
         
         let codeNS = code as NSString
@@ -136,9 +141,32 @@ public class Parser {
             let range = codeNS.range(of: token.payload, options: [], range: NSRange(index..<codeNS.length))
             index += (token.payload as NSString).length
             
+            callback(range, token)
+        }
+    }
+}
+
+/// Parse a string and return the tokens, their associated range, and attributes for an NSAttributedString
+public class AttributedParser {
+    public typealias AttributedParserCallback = (_ range: NSRange, _ token: Token, _ attributes: [String: Any]) -> Void
+    
+    @available(*, unavailable)
+    private init() { }
+    
+    /// Parse a code string using a pygments lexer and colour it with the provided theme,
+    /// returning attributes that can be used with an NSAttributedString.
+    ///
+    /// - parameter code:     Code to parse.
+    /// - parameter lexer:    Lexer to tokenise with.
+    /// - parameter theme:    Theme to use for generating NSAttributedString attributes.
+    /// - parameter callback: Called with a range, its token, and attributes.
+    ///
+    /// - throws: A ParserError
+    public class func parse(_ code: String, with lexer: String, theme: Theme, callback: AttributedParserCallback) throws {
+        try Parser.parse(code, with: lexer) { (range, token) in
             guard let scopeSelector = token.kind.scope,
                 let scope = theme.resolveScope(selector: scopeSelector) else {
-                continue
+                    return
             }
             
             // Populate attributes
@@ -150,10 +178,13 @@ public class Parser {
             if let background = scope.background {
                 attributes[NSBackgroundColorAttributeName] = background
             }
+            // Ignore font styles for now.
+            // TODO: Don't ignore font styles 
+//            if let fontStyles = scope.fontStyles {
+//            }
             
             // emit range and attributes
-            callback(range, attributes)
+            callback(range, token, attributes)
         }
     }
-    
 }

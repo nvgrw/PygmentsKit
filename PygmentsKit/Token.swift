@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Pygments token types -
 
-struct Token {
+public struct Token {
     let kind: Kind
     let payload: String
 }

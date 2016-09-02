@@ -16,8 +16,8 @@ guard let theme = Theme(data: data) else {
 }
 
 do {
-    try Parser.parse("def __main__(self):\n    print(\"Hello World\")\n    a = 1 + 2\n\n__main__(None)", with: "python3", theme: theme) { (range, attributes) in
-        print("Range:", NSStringFromRange(range), "Attributes:", attributes)
+    try AttributedParser.parse("def __main__(self):\n    print(\"Hello World\")\n    a = 1 + 2\n\n__main__(None)", with: "python3", theme: theme) { (range, _, attributes) in
+        print("Range:", NSStringFromRange(range), "Attributes", attributes)
     }
 } catch let error {
     print("Error:", error)

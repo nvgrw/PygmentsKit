@@ -9,27 +9,45 @@
 /* Begin PBXBuildFile section */
 		2420605D1D799E210030AF9D /* pygmentize in Resources */ = {isa = PBXBuildFile; fileRef = 2420605B1D799E210030AF9D /* pygmentize */; };
 		2420605E1D799E210030AF9D /* pygments in Resources */ = {isa = PBXBuildFile; fileRef = 2420605C1D799E210030AF9D /* pygments */; };
+		244352301D79A18600683E92 /* ThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2443522F1D79A18600683E92 /* ThemeTests.swift */; };
+		244352371D79A98800683E92 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244352361D79A98800683E92 /* Util.swift */; };
+		244352391D79B37A00683E92 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244352381D79B37A00683E92 /* ParserTests.swift */; };
+		2443523B1D79B39F00683E92 /* TestsSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2443523A1D79B39F00683E92 /* TestsSupport.swift */; };
+		244352591D79BB9400683E92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244352581D79BB9400683E92 /* AppDelegate.swift */; };
+		2443525B1D79BB9400683E92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2443525A1D79BB9400683E92 /* ViewController.swift */; };
+		2443525D1D79BB9400683E92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2443525C1D79BB9400683E92 /* Assets.xcassets */; };
+		244352601D79BB9400683E92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2443525E1D79BB9400683E92 /* Main.storyboard */; };
+		244352661D79BBE500683E92 /* PygmentsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B103EB1D78526900C526BB /* PygmentsKit.framework */; };
+		244352681D79BBF200683E92 /* PygmentsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B103EB1D78526900C526BB /* PygmentsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2443527C1D79BD0300683E92 /* Twilight.tmTheme in Resources */ = {isa = PBXBuildFile; fileRef = 244352761D79BD0300683E92 /* Twilight.tmTheme */; };
+		2443527D1D79BD0300683E92 /* test.swift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352771D79BD0300683E92 /* test.swift.txt */; };
+		2443527E1D79BD0300683E92 /* test.rb.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352781D79BD0300683E92 /* test.rb.txt */; };
+		2443527F1D79BD0300683E92 /* test.java.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352791D79BD0300683E92 /* test.java.txt */; };
+		244352801D79BD0300683E92 /* test.d.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2443527A1D79BD0300683E92 /* test.d.txt */; };
+		244352811D79BD0300683E92 /* test.cpp.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2443527B1D79BD0300683E92 /* test.cpp.txt */; };
+		244352881D79BD0E00683E92 /* Twilight.tmTheme in Resources */ = {isa = PBXBuildFile; fileRef = 244352821D79BD0E00683E92 /* Twilight.tmTheme */; };
+		244352891D79BD0F00683E92 /* test.swift.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352831D79BD0E00683E92 /* test.swift.txt */; };
+		2443528A1D79BD0F00683E92 /* test.rb.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352841D79BD0E00683E92 /* test.rb.txt */; };
+		2443528B1D79BD0F00683E92 /* test.java.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352851D79BD0E00683E92 /* test.java.txt */; };
+		2443528C1D79BD0F00683E92 /* test.d.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352861D79BD0E00683E92 /* test.d.txt */; };
+		2443528D1D79BD0F00683E92 /* test.cpp.txt in Resources */ = {isa = PBXBuildFile; fileRef = 244352871D79BD0E00683E92 /* test.cpp.txt */; };
 		24B103F51D78526900C526BB /* PygmentsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B103EB1D78526900C526BB /* PygmentsKit.framework */; };
-		24B103FA1D78526900C526BB /* PygmentsKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B103F91D78526900C526BB /* PygmentsKitTests.swift */; };
 		24B103FC1D78526900C526BB /* PygmentsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 24B103EE1D78526900C526BB /* PygmentsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24B104151D7858FE00C526BB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B104141D7858FE00C526BB /* Token.swift */; };
-		24B104231D785EFD00C526BB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B104221D785EFD00C526BB /* main.swift */; };
 		24BA98441D78858600B54A00 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BA98431D78858500B54A00 /* Parser.swift */; };
-		24BA98471D7889D800B54A00 /* PygmentsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24B103EB1D78526900C526BB /* PygmentsKit.framework */; };
-		24BA98481D7889D800B54A00 /* PygmentsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24B103EB1D78526900C526BB /* PygmentsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		24BA98511D78D59700B54A00 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BA98501D78D59700B54A00 /* Theme.swift */; };
 		24BA98531D78D6DE00B54A00 /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BA98521D78D6DE00B54A00 /* NSColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		24B103F61D78526900C526BB /* PBXContainerItemProxy */ = {
+		244352691D79BBF200683E92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24B103E21D78526900C526BB /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 24B103EA1D78526900C526BB;
 			remoteInfo = PygmentsKit;
 		};
-		24BA98491D7889D800B54A00 /* PBXContainerItemProxy */ = {
+		24B103F61D78526900C526BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 24B103E21D78526900C526BB /* Project object */;
 			proxyType = 1;
@@ -39,13 +57,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		24BA984B1D7889D800B54A00 /* Embed Frameworks */ = {
+		2443526B1D79BBF200683E92 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				24BA98481D7889D800B54A00 /* PygmentsKit.framework in Embed Frameworks */,
+				244352681D79BBF200683E92 /* PygmentsKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,22 +73,49 @@
 /* Begin PBXFileReference section */
 		2420605B1D799E210030AF9D /* pygmentize */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pygmentize; path = "Resources/pygments-python/pygmentize"; sourceTree = "<group>"; };
 		2420605C1D799E210030AF9D /* pygments */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pygments; path = "Resources/pygments-python/pygments"; sourceTree = "<group>"; };
+		2443522F1D79A18600683E92 /* ThemeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTests.swift; sourceTree = "<group>"; };
+		244352361D79A98800683E92 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		244352381D79B37A00683E92 /* ParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
+		2443523A1D79B39F00683E92 /* TestsSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestsSupport.swift; sourceTree = "<group>"; };
+		244352561D79BB9400683E92 /* PygmentsKitTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PygmentsKitTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		244352581D79BB9400683E92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2443525A1D79BB9400683E92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2443525C1D79BB9400683E92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2443525F1D79BB9400683E92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		244352611D79BB9400683E92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		244352761D79BD0300683E92 /* Twilight.tmTheme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Twilight.tmTheme; path = TestsAndToolResources/Twilight.tmTheme; sourceTree = SOURCE_ROOT; };
+		244352771D79BD0300683E92 /* test.swift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.swift.txt; path = TestsAndToolResources/test.swift.txt; sourceTree = SOURCE_ROOT; };
+		244352781D79BD0300683E92 /* test.rb.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.rb.txt; path = TestsAndToolResources/test.rb.txt; sourceTree = SOURCE_ROOT; };
+		244352791D79BD0300683E92 /* test.java.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.java.txt; path = TestsAndToolResources/test.java.txt; sourceTree = SOURCE_ROOT; };
+		2443527A1D79BD0300683E92 /* test.d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.d.txt; path = TestsAndToolResources/test.d.txt; sourceTree = SOURCE_ROOT; };
+		2443527B1D79BD0300683E92 /* test.cpp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.cpp.txt; path = TestsAndToolResources/test.cpp.txt; sourceTree = SOURCE_ROOT; };
+		244352821D79BD0E00683E92 /* Twilight.tmTheme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Twilight.tmTheme; path = TestsAndToolResources/Twilight.tmTheme; sourceTree = SOURCE_ROOT; };
+		244352831D79BD0E00683E92 /* test.swift.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.swift.txt; path = TestsAndToolResources/test.swift.txt; sourceTree = SOURCE_ROOT; };
+		244352841D79BD0E00683E92 /* test.rb.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.rb.txt; path = TestsAndToolResources/test.rb.txt; sourceTree = SOURCE_ROOT; };
+		244352851D79BD0E00683E92 /* test.java.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.java.txt; path = TestsAndToolResources/test.java.txt; sourceTree = SOURCE_ROOT; };
+		244352861D79BD0E00683E92 /* test.d.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.d.txt; path = TestsAndToolResources/test.d.txt; sourceTree = SOURCE_ROOT; };
+		244352871D79BD0E00683E92 /* test.cpp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.cpp.txt; path = TestsAndToolResources/test.cpp.txt; sourceTree = SOURCE_ROOT; };
+		24A0AC8D1D7AF86500481C08 /* PygmentsKitTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PygmentsKitTool.entitlements; sourceTree = "<group>"; };
 		24B103EB1D78526900C526BB /* PygmentsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PygmentsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24B103EE1D78526900C526BB /* PygmentsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PygmentsKit.h; sourceTree = "<group>"; };
 		24B103EF1D78526900C526BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24B103F41D78526900C526BB /* PygmentsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PygmentsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		24B103F91D78526900C526BB /* PygmentsKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PygmentsKitTests.swift; sourceTree = "<group>"; };
 		24B103FB1D78526900C526BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24B104141D7858FE00C526BB /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		24B104201D785EFD00C526BB /* PygmentsKitTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PygmentsKitTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		24B104221D785EFD00C526BB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		24B1042B1D785EFD00C526BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BA98431D78858500B54A00 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		24BA98501D78D59700B54A00 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		24BA98521D78D6DE00B54A00 /* NSColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		244352531D79BB9400683E92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				244352661D79BBE500683E92 /* PygmentsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24B103E71D78526900C526BB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,23 +131,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		24B1041D1D785EFD00C526BB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24BA98471D7889D800B54A00 /* PygmentsKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		244352351D79A33E00683E92 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				244352761D79BD0300683E92 /* Twilight.tmTheme */,
+				244352771D79BD0300683E92 /* test.swift.txt */,
+				244352781D79BD0300683E92 /* test.rb.txt */,
+				244352791D79BD0300683E92 /* test.java.txt */,
+				2443527A1D79BD0300683E92 /* test.d.txt */,
+				2443527B1D79BD0300683E92 /* test.cpp.txt */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		244352571D79BB9400683E92 /* PygmentsKitTool */ = {
+			isa = PBXGroup;
+			children = (
+				244352581D79BB9400683E92 /* AppDelegate.swift */,
+				2443525A1D79BB9400683E92 /* ViewController.swift */,
+				2443525C1D79BB9400683E92 /* Assets.xcassets */,
+				2443525E1D79BB9400683E92 /* Main.storyboard */,
+				24A0AC8D1D7AF86500481C08 /* PygmentsKitTool.entitlements */,
+				244352611D79BB9400683E92 /* Info.plist */,
+				244352651D79BBCD00683E92 /* Resources */,
+			);
+			path = PygmentsKitTool;
+			sourceTree = "<group>";
+		};
+		244352651D79BBCD00683E92 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				244352821D79BD0E00683E92 /* Twilight.tmTheme */,
+				244352831D79BD0E00683E92 /* test.swift.txt */,
+				244352841D79BD0E00683E92 /* test.rb.txt */,
+				244352851D79BD0E00683E92 /* test.java.txt */,
+				244352861D79BD0E00683E92 /* test.d.txt */,
+				244352871D79BD0E00683E92 /* test.cpp.txt */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		24B103E11D78526900C526BB = {
 			isa = PBXGroup;
 			children = (
 				24B103ED1D78526900C526BB /* PygmentsKit */,
 				24B103F81D78526900C526BB /* PygmentsKitTests */,
-				24B104211D785EFD00C526BB /* PygmentsKitTool */,
+				244352571D79BB9400683E92 /* PygmentsKitTool */,
 				24B103EC1D78526900C526BB /* Products */,
 				24B104171D785E6800C526BB /* Frameworks */,
 			);
@@ -113,7 +190,7 @@
 			children = (
 				24B103EB1D78526900C526BB /* PygmentsKit.framework */,
 				24B103F41D78526900C526BB /* PygmentsKitTests.xctest */,
-				24B104201D785EFD00C526BB /* PygmentsKitTool.app */,
+				244352561D79BB9400683E92 /* PygmentsKitTool.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +202,7 @@
 				24B104141D7858FE00C526BB /* Token.swift */,
 				24BA98501D78D59700B54A00 /* Theme.swift */,
 				24BA98521D78D6DE00B54A00 /* NSColor+Extensions.swift */,
+				244352361D79A98800683E92 /* Util.swift */,
 				24B103EE1D78526900C526BB /* PygmentsKit.h */,
 				24B103EF1D78526900C526BB /* Info.plist */,
 				24B104131D7858E800C526BB /* Resources */,
@@ -135,8 +213,11 @@
 		24B103F81D78526900C526BB /* PygmentsKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				24B103F91D78526900C526BB /* PygmentsKitTests.swift */,
+				2443522F1D79A18600683E92 /* ThemeTests.swift */,
+				244352381D79B37A00683E92 /* ParserTests.swift */,
+				2443523A1D79B39F00683E92 /* TestsSupport.swift */,
 				24B103FB1D78526900C526BB /* Info.plist */,
+				244352351D79A33E00683E92 /* Resources */,
 			);
 			path = PygmentsKitTests;
 			sourceTree = "<group>";
@@ -157,15 +238,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		24B104211D785EFD00C526BB /* PygmentsKitTool */ = {
-			isa = PBXGroup;
-			children = (
-				24B104221D785EFD00C526BB /* main.swift */,
-				24B1042B1D785EFD00C526BB /* Info.plist */,
-			);
-			path = PygmentsKitTool;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -180,6 +252,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		244352551D79BB9400683E92 /* PygmentsKitTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 244352621D79BB9400683E92 /* Build configuration list for PBXNativeTarget "PygmentsKitTool" */;
+			buildPhases = (
+				244352521D79BB9400683E92 /* Sources */,
+				244352531D79BB9400683E92 /* Frameworks */,
+				244352541D79BB9400683E92 /* Resources */,
+				2443526B1D79BBF200683E92 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2443526A1D79BBF200683E92 /* PBXTargetDependency */,
+			);
+			name = PygmentsKitTool;
+			productName = PygmentsKitTool;
+			productReference = 244352561D79BB9400683E92 /* PygmentsKitTool.app */;
+			productType = "com.apple.product-type.application";
+		};
 		24B103EA1D78526900C526BB /* PygmentsKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24B103FF1D78526900C526BB /* Build configuration list for PBXNativeTarget "PygmentsKit" */;
@@ -216,25 +307,6 @@
 			productReference = 24B103F41D78526900C526BB /* PygmentsKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		24B1041F1D785EFD00C526BB /* PygmentsKitTool */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 24B1042C1D785EFD00C526BB /* Build configuration list for PBXNativeTarget "PygmentsKitTool" */;
-			buildPhases = (
-				24B1041C1D785EFD00C526BB /* Sources */,
-				24B1041D1D785EFD00C526BB /* Frameworks */,
-				24B1041E1D785EFD00C526BB /* Resources */,
-				24BA984B1D7889D800B54A00 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				24BA984A1D7889D800B54A00 /* PBXTargetDependency */,
-			);
-			name = PygmentsKitTool;
-			productName = PygmentsKitTool;
-			productReference = 24B104201D785EFD00C526BB /* PygmentsKitTool.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -245,6 +317,16 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Niklas Vangerow";
 				TargetAttributes = {
+					244352551D79BB9400683E92 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = AAPBC93DAB;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					24B103EA1D78526900C526BB = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = AAPBC93DAB;
@@ -252,11 +334,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					24B103F31D78526900C526BB = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = AAPBC93DAB;
-						ProvisioningStyle = Automatic;
-					};
-					24B1041F1D785EFD00C526BB = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = AAPBC93DAB;
 						ProvisioningStyle = Automatic;
@@ -278,12 +355,27 @@
 			targets = (
 				24B103EA1D78526900C526BB /* PygmentsKit */,
 				24B103F31D78526900C526BB /* PygmentsKitTests */,
-				24B1041F1D785EFD00C526BB /* PygmentsKitTool */,
+				244352551D79BB9400683E92 /* PygmentsKitTool */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		244352541D79BB9400683E92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2443525D1D79BB9400683E92 /* Assets.xcassets in Resources */,
+				244352601D79BB9400683E92 /* Main.storyboard in Resources */,
+				244352881D79BD0E00683E92 /* Twilight.tmTheme in Resources */,
+				2443528B1D79BD0F00683E92 /* test.java.txt in Resources */,
+				2443528D1D79BD0F00683E92 /* test.cpp.txt in Resources */,
+				244352891D79BD0F00683E92 /* test.swift.txt in Resources */,
+				2443528C1D79BD0F00683E92 /* test.d.txt in Resources */,
+				2443528A1D79BD0F00683E92 /* test.rb.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24B103E91D78526900C526BB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,25 +389,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24B1041E1D785EFD00C526BB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				2443527C1D79BD0300683E92 /* Twilight.tmTheme in Resources */,
+				2443527E1D79BD0300683E92 /* test.rb.txt in Resources */,
+				2443527D1D79BD0300683E92 /* test.swift.txt in Resources */,
+				244352811D79BD0300683E92 /* test.cpp.txt in Resources */,
+				244352801D79BD0300683E92 /* test.d.txt in Resources */,
+				2443527F1D79BD0300683E92 /* test.java.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		244352521D79BB9400683E92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2443525B1D79BB9400683E92 /* ViewController.swift in Sources */,
+				244352591D79BB9400683E92 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24B103E61D78526900C526BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				24BA98511D78D59700B54A00 /* Theme.swift in Sources */,
 				24BA98441D78858600B54A00 /* Parser.swift in Sources */,
+				244352371D79A98800683E92 /* Util.swift in Sources */,
 				24BA98531D78D6DE00B54A00 /* NSColor+Extensions.swift in Sources */,
 				24B104151D7858FE00C526BB /* Token.swift in Sources */,
 			);
@@ -325,34 +426,71 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24B103FA1D78526900C526BB /* PygmentsKitTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		24B1041C1D785EFD00C526BB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24B104231D785EFD00C526BB /* main.swift in Sources */,
+				244352391D79B37A00683E92 /* ParserTests.swift in Sources */,
+				2443523B1D79B39F00683E92 /* TestsSupport.swift in Sources */,
+				244352301D79A18600683E92 /* ThemeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2443526A1D79BBF200683E92 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24B103EA1D78526900C526BB /* PygmentsKit */;
+			targetProxy = 244352691D79BBF200683E92 /* PBXContainerItemProxy */;
+		};
 		24B103F71D78526900C526BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24B103EA1D78526900C526BB /* PygmentsKit */;
 			targetProxy = 24B103F61D78526900C526BB /* PBXContainerItemProxy */;
 		};
-		24BA984A1D7889D800B54A00 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 24B103EA1D78526900C526BB /* PygmentsKit */;
-			targetProxy = 24BA98491D7889D800B54A00 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		2443525E1D79BB9400683E92 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2443525F1D79BB9400683E92 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		244352631D79BB9400683E92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PygmentsKitTool/PygmentsKitTool.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AAPBC93DAB;
+				INFOPLIST_FILE = PygmentsKitTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKitTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		244352641D79BB9400683E92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PygmentsKitTool/PygmentsKitTool.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AAPBC93DAB;
+				INFOPLIST_FILE = PygmentsKitTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKitTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		24B103FD1D78526900C526BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -520,35 +658,18 @@
 			};
 			name = Release;
 		};
-		24B1042D1D785EFD00C526BB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = AAPBC93DAB;
-				INFOPLIST_FILE = PygmentsKitTool/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKitTool;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		24B1042E1D785EFD00C526BB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = AAPBC93DAB;
-				INFOPLIST_FILE = PygmentsKitTool/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = uk.notro.PygmentsKitTool;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		244352621D79BB9400683E92 /* Build configuration list for PBXNativeTarget "PygmentsKitTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				244352631D79BB9400683E92 /* Debug */,
+				244352641D79BB9400683E92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		24B103E51D78526900C526BB /* Build configuration list for PBXProject "PygmentsKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -572,15 +693,6 @@
 			buildConfigurations = (
 				24B104031D78526900C526BB /* Debug */,
 				24B104041D78526900C526BB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		24B1042C1D785EFD00C526BB /* Build configuration list for PBXNativeTarget "PygmentsKitTool" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24B1042D1D785EFD00C526BB /* Debug */,
-				24B1042E1D785EFD00C526BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

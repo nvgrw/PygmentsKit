@@ -59,6 +59,6 @@ extension NSColor {
         let blue = NSColor.getGroupValue(string: stringValue, range: 4..<6)
         let alpha = NSColor.getGroupValue(string: stringValue, range: 6..<8)
         
-        self.init(red: red, green: green, blue: blue, alpha: alpha)
+        self.init(srgbRed: red, green: green, blue: blue, alpha: alpha)
     }
 }

@@ -18,12 +18,18 @@ public class Parser {
     
     public enum ParserError: Error {
         case noPygmentizeScript
-        case cantEncodeCodeString
+        case cantGetTempDescriptor
         case pygmentizeStderr(String)
     }
     
     @available(*, unavailable)
     private init() { }
+    
+    static let bundle = Bundle(for: Parser.self)
+    
+    static var pygmentsScript: URL? = {
+        return bundle.url(forResource: "pygmentize", withExtension: "")
+    }()
     
     /// Obtain tokens from pygments for the code and chosen lexer
     ///
@@ -34,52 +40,69 @@ public class Parser {
     static func tokenize(_ code: String, with lexer: String) throws -> [Token] {
         
         // Get the pygments script path
-        let bundle = Bundle(for: Parser.self)
-        guard let pygmentsScript = bundle.resourceURL?.appendingPathComponent("pygmentize") else {
+        guard let pygmentsScript = Parser.pygmentsScript else {
             throw ParserError.noPygmentizeScript
-        }
-        
-        guard let encodedCode = code.data(using: .utf8) else {
-            throw ParserError.cantEncodeCodeString
         }
         
         os_log("Found pygmentize at %{public}s", log: Parser.log, type: .debug, pygmentsScript.path)
         
+        // Save code to temporary directory as stdin is weird
+        let codeFileLocation = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pygktmp.\(UUID().uuidString)")
+        try code.write(to: codeFileLocation, atomically: false, encoding: .utf8)
+        
+        defer {
+            // delete temp file once we're done with it
+            if FileManager.default.fileExists(atPath: codeFileLocation.path) {
+                try? FileManager.default.removeItem(at: codeFileLocation)
+            }
+        }
+        
         // Set up the process
         let pyg = Process()
         pyg.launchPath = "/usr/bin/env"
-        pyg.arguments = ["python", pygmentsScript.path, "-f", "raw", "-l", lexer]
+        pyg.arguments = ["python", pygmentsScript.path, "-f", "raw", "-l", lexer, codeFileLocation.path]
         
-        // Write the code to standard input
-        let stdin = Pipe()
-        stdin.fileHandleForWriting.write(encodedCode)
-        stdin.fileHandleForWriting.closeFile()
-        
-        // Get standard output form
+        // Get standard output from
         let stdout = Pipe()
+        var stdoutData = Data()
         let stderr = Pipe()
+        var stderrData = Data()
+        
+        // Set up handlers
+        stdout.fileHandleForReading.readabilityHandler = { (handle) -> Void in
+            stdoutData.append(handle.availableData)
+        }
+        
+        stderr.fileHandleForReading.readabilityHandler = { (handle) -> Void in
+            stderrData.append(handle.availableData)
+        }
         
         // Set up the pipes
-        pyg.standardInput = stdin
         pyg.standardOutput = stdout
         pyg.standardError = stderr
         
         // Launch pygmentize
         pyg.launch()
+        
+        // Wait until we're done
         pyg.waitUntilExit()
+        
+        // Reset the handlers
+        stdout.fileHandleForReading.readabilityHandler = nil
+        stderr.fileHandleForReading.readabilityHandler = nil
         
         guard pyg.terminationStatus == 0 else {
             // We encountered some kind of problem
-            throw ParserError.pygmentizeStderr(String(data: stderr.fileHandleForReading.availableData, encoding: .utf8) ?? "")
+            throw ParserError.pygmentizeStderr(String(data: stderrData, encoding: .utf8) ?? "")
         }
         
-        guard let output = String(data: stdout.fileHandleForReading.availableData, encoding: .utf8) else {
+        guard let output = String(data: stdoutData, encoding: .utf8) else {
             // No tokens generated
             return []
         }
         
         var tokens = [Token]()
-        // TODO: Use enumerateLines instead
+
         for line in output.components(separatedBy: .newlines) {            
             let lineSplit = line.components(separatedBy: "\t")
             guard lineSplit.count == 2 else {

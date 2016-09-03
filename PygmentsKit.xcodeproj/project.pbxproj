@@ -275,6 +275,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24B103FF1D78526900C526BB /* Build configuration list for PBXNativeTarget "PygmentsKit" */;
 			buildPhases = (
+				248CF2A21D7B021700D841CC /* Download Pygments if not downloaded already */,
 				24B103E61D78526900C526BB /* Sources */,
 				24B103E71D78526900C526BB /* Frameworks */,
 				24B103E81D78526900C526BB /* Headers */,
@@ -399,6 +400,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		248CF2A21D7B021700D841CC /* Download Pygments if not downloaded already */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Download Pygments if not downloaded already";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pygmentsPath=\"$SRCROOT/PygmentsKit/Resources/pygments-python\"\n\nif [ ! -d $pygmentsPath ]; then\n    /bin/bash \"$SRCROOT/get_pygments.sh\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		244352521D79BB9400683E92 /* Sources */ = {

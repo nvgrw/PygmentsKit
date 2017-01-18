@@ -2,7 +2,7 @@
 
 cd PygmentsKit/Resources
 
-hg clone -b stable ssh://hg@bitbucket.org/birkenfeld/pygments-main pygments-python
+hg clone -b stable https://bitbucket.org/birkenfeld/pygments-main pygments-python
 
 echo "Applying patch to pygments-python/pygments/formatters/other.py"
 

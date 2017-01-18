@@ -53,13 +53,6 @@ public class Parser {
     /// - returns: Array of tokens
     static func tokenize(_ code: String, with lexer: String) throws -> [Token] {
         
-        // Get the pygments script path
-        guard let pygmentsScript = Parser.pygmentsScript else {
-            throw ParserError.noPygmentizeScript
-        }
-        
-        os_log("Found pygmentize at %{public}s", log: Parser.log, type: .debug, pygmentsScript.path)
-        
         // Save code to temporary directory as stdin is weird
         let codeFileLocation = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("pygktmp.\(UUID().uuidString)")
         try code.write(to: codeFileLocation, atomically: false, encoding: .utf8)
@@ -71,49 +64,8 @@ public class Parser {
             }
         }
         
-        // Set up the process
-        let pyg = Process()
-        pyg.launchPath = "/usr/bin/env"
-        pyg.arguments = ["python", pygmentsScript.path, "-f", "raw", "-l", lexer, codeFileLocation.path]
-        
-        // Get standard output from
-        let stdout = Pipe()
-        var stdoutData = Data()
-        let stderr = Pipe()
-        var stderrData = Data()
-        
-        // Set up handlers
-        stdout.fileHandleForReading.readabilityHandler = { (handle) -> Void in
-            stdoutData.append(handle.availableData)
-        }
-        
-        stderr.fileHandleForReading.readabilityHandler = { (handle) -> Void in
-            stderrData.append(handle.availableData)
-        }
-        
-        // Set up the pipes
-        pyg.standardOutput = stdout
-        pyg.standardError = stderr
-        
-        // Launch pygmentize
-        pyg.launch()
-        
-        // Wait until we're done
-        pyg.waitUntilExit()
-        
-        // Reset the handlers
-        stdout.fileHandleForReading.readabilityHandler = nil
-        stderr.fileHandleForReading.readabilityHandler = nil
-        
-        guard pyg.terminationStatus == 0 else {
-            // We encountered some kind of problem
-            throw ParserError.pygmentizeStderr(String(data: stderrData, encoding: .utf8) ?? "")
-        }
-        
-        guard let output = String(data: stdoutData, encoding: .utf8) else {
-            // No tokens generated
-            return []
-        }
+        let arguments = ["-f", "raw", "-l", lexer, codeFileLocation.path]
+        let output = try launchPygmentsScript(arguments: arguments)
         
         var tokens = [Token]()
 
@@ -180,6 +132,88 @@ public class Parser {
             
             callback(range, token)
         }
+    }
+    
+    /// Obtain a suitable lexer for the given filename.
+    ///
+    /// - parameter filename:     Filename to query.
+    ///
+    /// - returns: Lexer name, if suitable lexer is found, or nil if not.
+    ///
+    /// - throws: A ParserError
+    public class func findLexer(for filename: String) throws -> String? {
+        let arguments = ["-N", (filename as NSString).lastPathComponent]
+
+        let output = (try launchPygmentsScript(arguments: arguments)).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+
+        if output.characters.count == 0 {
+            return nil
+        }
+        
+        return output
+    }
+    
+    /// Launch built-in pygmentize script and return its error
+    ///
+    /// - parameter arguments:    Arguments to pass to the script
+    ///
+    /// - returns: Script output string
+    ///
+    /// - throws: A ParserError
+    static func launchPygmentsScript(arguments: [String]) throws -> String {
+        // Get the pygments script path
+        guard let pygmentsScript = Parser.pygmentsScript else {
+            throw ParserError.noPygmentizeScript
+        }
+        
+        os_log("Found pygmentize at %{public}s", log: Parser.log, type: .debug, pygmentsScript.path)
+        
+        // Set up the process
+        let pyg = Process()
+        pyg.launchPath = "/usr/bin/env"
+        var processArguments: [String] = ["python", pygmentsScript.path]
+        processArguments.append(contentsOf: arguments)
+        pyg.arguments = processArguments
+        
+        // Get standard output from
+        let stdout = Pipe()
+        var stdoutData = Data()
+        let stderr = Pipe()
+        var stderrData = Data()
+        
+        // Set up handlers
+        stdout.fileHandleForReading.readabilityHandler = { (handle) -> Void in
+            stdoutData.append(handle.availableData)
+        }
+        
+        stderr.fileHandleForReading.readabilityHandler = { (handle) -> Void in
+            stderrData.append(handle.availableData)
+        }
+        
+        // Set up the pipes
+        pyg.standardOutput = stdout
+        pyg.standardError = stderr
+        
+        // Launch pygmentize
+        pyg.launch()
+        
+        // Wait until we're done
+        pyg.waitUntilExit()
+        
+        // Reset the handlers
+        stdout.fileHandleForReading.readabilityHandler = nil
+        stderr.fileHandleForReading.readabilityHandler = nil
+        
+        guard pyg.terminationStatus == 0 else {
+            // We encountered some kind of problem
+            throw ParserError.pygmentizeStderr(String(data: stderrData, encoding: .utf8) ?? "")
+        }
+        
+        guard let output = String(data: stdoutData, encoding: .utf8) else {
+            return ""
+        }
+
+        return output
     }
 }
 

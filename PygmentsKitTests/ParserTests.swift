@@ -75,4 +75,14 @@ class ParserTests: XCTestCase {
         try Parser.parse(sourceCpp, with: "cpp", callback: { (_, _) in })
     }
 
+    func testFindLexer() throws {
+        let lexer = try Parser.findLexer(for: "file.swift")
+        XCTAssertEqual(lexer, "swift")
+        
+        let lexer2 = try Parser.findLexer(for: "somefile")
+        XCTAssertEqual(lexer2, "text")
+        
+        let lexer3 = try Parser.findLexer(for: "Hello.m")
+        XCTAssertEqual(lexer3, "objective-c")
+    }
 }

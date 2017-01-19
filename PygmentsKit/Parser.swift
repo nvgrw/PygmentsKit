@@ -26,7 +26,7 @@ import os
 /// Parse a string and return the tokens and their associated range
 public class Parser {
     
-    private static let log = OSLog(subsystem: "uk.notro.PygmentsKit", category: "Parser")
+    //private static let log = OSLog(subsystem: "uk.notro.PygmentsKit", category: "Parser")
     
     public typealias ParserCallback = (_ range: NSRange, _ token: Token) -> Void
     
@@ -166,7 +166,7 @@ public class Parser {
             throw ParserError.noPygmentizeScript
         }
         
-        os_log("Found pygmentize at %{public}s", log: Parser.log, type: .debug, pygmentsScript.path)
+        //os_log("Found pygmentize at %{public}s", log: Parser.log, type: .debug, pygmentsScript.path)
         
         // Set up the process
         let pyg = Process()

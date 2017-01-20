@@ -28,7 +28,7 @@ public class Parser {
     
     //private static let log = OSLog(subsystem: "uk.notro.PygmentsKit", category: "Parser")
     
-    public typealias ParserCallback = (_ range: NSRange, _ token: Token) -> Void
+    public typealias ParserCallback = (_ range: NSRange, _ token: Token) -> Bool
     
     public enum ParserError: Error {
         case noPygmentizeScript
@@ -81,26 +81,55 @@ public class Parser {
             
             guard let kind = Token.Kind(rawValue: kindStr) else {
                 // Unknown token
-                print("Unknown token kind \(kindStr)")
+                //print("Unknown token kind \(kindStr)")
                 continue
             }
             
             // all payload is preceded with u' and ends in '
+            // NOTE: the statement above is false due to patch
             guard payloadStr.characters.count >= 2 && payloadStr.characters.count % 2 == 0 else {
                 // We don't have enough characters in the payload, missing the unicode string.
                 print("Not enough characters in payload \(payloadStr)")
                 continue
             }
             
-            
-            let payloadSbstr = payloadStr.substring(with: payloadStr.index(after: payloadStr.startIndex)..<payloadStr.index(before: payloadStr.endIndex))
             var data = Data()
-            var i = 0
-            while i < payloadSbstr.characters.count {
-                let chrs = "\(payloadSbstr[payloadSbstr.index(payloadSbstr.startIndex, offsetBy: i)])\(payloadSbstr.characters[payloadSbstr.index(payloadSbstr.startIndex, offsetBy: i + 1)])"
-                let byte = UInt8(chrs, radix: 16)!
+
+            /* NOTE: absolutely no matter what kind of 3GL we're using, we always ought to do even the bad things in the proper way...
+             *  or can try to at least. thus use no overkills like concats & radix conversion for the banality.
+             *  pseudocompactness is a trap
+             *
+             *   let payloadSbstr = payloadStr.substring(with: payloadStr.index(after: payloadStr.startIndex)..<payloadStr.index(before: payloadStr.endIndex))
+             *   var i = 0
+             *   while i < payloadSbstr.characters.count {
+             *       let chrs = "\(payloadSbstr[payloadSbstr.index(payloadSbstr.startIndex, offsetBy: i)])\(payloadSbstr.characters[payloadSbstr.index(payloadSbstr.startIndex, offsetBy: i + 1)])"
+             *       let byte = UInt8(chrs, radix: 16)!
+             *       data.append(byte)
+             *       i += 2
+             *   }
+             */
+ 
+            let payloadUni = payloadStr.lowercased().unicodeScalars // NOTE: formaly payloadStr already lowercased
+            var itr = payloadUni[payloadUni.index(after: payloadUni.startIndex)..<payloadUni.index(before: payloadUni.endIndex)].makeIterator()
+
+            while true {
+
+                guard let uni1 = itr.next() else { break }
+                var ch1 = uni1.value - 0x30
+                if ch1 > 9 {
+                    ch1 += 0x30 + 10
+                    ch1 -= 0x61
+                }
+
+                guard let uni2 = itr.next() else { break }
+                var ch2 = uni2.value - 0x30
+                if ch2 > 9 {
+                    ch2 += 0x30 + 10
+                    ch2 -= 0x61
+                }
+
+                let byte = UInt8((ch1 << 4) + ch2)
                 data.append(byte)
-                i += 2
             }
             
             guard let payload = String(data: data, encoding: .utf8) else {
@@ -125,12 +154,13 @@ public class Parser {
         let tokens = try tokenize(code, with: lexer)
         
         let codeNS = code as NSString
+        let icount = codeNS.length
         var index = 0
-        for token in tokens where index < codeNS.length {
-            let range = codeNS.range(of: token.payload, options: [], range: NSRange(index..<codeNS.length))
+        for token in tokens where index < icount {
+            let range = codeNS.range(of: token.payload, options: [], range: NSRange(index..<icount))
             index += (token.payload as NSString).length
             
-            callback(range, token)
+            guard callback(range, token) else { break }
         }
     }
     
@@ -219,7 +249,7 @@ public class Parser {
 
 /// Parse a string and return the tokens, their associated range, and attributes for an NSAttributedString
 public class AttributedParser {
-    public typealias AttributedParserCallback = (_ range: NSRange, _ token: Token, _ attributes: [String: Any]) -> Void
+    public typealias AttributedParserCallback = (_ range: NSRange, _ token: Token, _ attributes: [String: Any]) -> Bool
     
     @available(*, unavailable)
     private init() { }
@@ -237,7 +267,7 @@ public class AttributedParser {
         try Parser.parse(code, with: lexer) { (range, token) in
             guard let scopeSelector = token.kind.scope,
                 let scope = theme.resolveScope(selector: scopeSelector) else {
-                    return
+                    return true // just bypass scope
             }
             
             // Populate attributes
@@ -255,7 +285,7 @@ public class AttributedParser {
 //            }
             
             // emit range and attributes
-            callback(range, token, attributes)
+            return callback(range, token, attributes)
         }
     }
 }

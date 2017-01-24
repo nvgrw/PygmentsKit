@@ -68,8 +68,10 @@ public class Parser {
         let output = try launchPygmentsScript(arguments: arguments)
         
         var tokens = [Token]()
+        var lastKind: Token.Kind? = nil
+        var lastData = Data()
 
-        for line in output.components(separatedBy: .newlines) {            
+        for line in output.components(separatedBy: .newlines) {
             let lineSplit = line.components(separatedBy: "\t")
             guard lineSplit.count == 2 else {
                 // we are expecting two components, bypass line
@@ -95,22 +97,23 @@ public class Parser {
                 // we shouldn't bypass unknown tokens
                 kind = .generic
             }
-            
-            var data = Data()
 
-            /* NOTE: absolutely no matter what kind of 3GL we're using, we always ought to do even the bad things in the proper way...
-             *  or can try to at least. thus use no overkills like concats & radix conversion for the banality.
-             *  pseudocompactness is a trap
-             *
-             *   let payloadSbstr = payloadStr.substring(with: payloadStr.index(after: payloadStr.startIndex)..<payloadStr.index(before: payloadStr.endIndex))
-             *   var i = 0
-             *   while i < payloadSbstr.characters.count {
-             *       let chrs = "\(payloadSbstr[payloadSbstr.index(payloadSbstr.startIndex, offsetBy: i)])\(payloadSbstr.characters[payloadSbstr.index(payloadSbstr.startIndex, offsetBy: i + 1)])"
-             *       let byte = UInt8(chrs, radix: 16)!
-             *       data.append(byte)
-             *       i += 2
-             *   }
-             */
+            if lastKind != nil && lastKind != kind {
+                
+                if !lastData.isEmpty {
+                    guard let payload = String(data: lastData, encoding: .utf8) else {
+                        // bail out on malformed input
+                        break
+                    }
+                    
+                    tokens.append(Token(kind: lastKind!, payload: payload))
+                }
+
+                lastKind = kind
+                lastData.removeAll()
+            } else if lastKind == nil {
+                lastKind = kind
+            }
  
             let payloadUni = payloadStr.lowercased().unicodeScalars // NOTE: formaly payloadStr already lowercased
             var itr = payloadUni[payloadUni.index(after: payloadUni.startIndex)..<payloadUni.index(before: payloadUni.endIndex)].makeIterator()
@@ -132,18 +135,19 @@ public class Parser {
                 }
 
                 let byte = UInt8((ch1 << 4) + ch2)
-                data.append(byte)
+                lastData.append(byte)
             }
-            
-            guard let payload = String(data: data, encoding: .utf8) else {
-                // bail out on malformed input
-                break
-            }
-            
-            tokens.append(Token(kind: kind!, payload: payload))
         }
         
-        
+        if lastKind != nil {
+            
+            if !lastData.isEmpty {
+                if let payload = String(data: lastData, encoding: .utf8) {
+                    tokens.append(Token(kind: lastKind!, payload: payload))
+                }
+            }
+        }
+
         return tokens
     }
     

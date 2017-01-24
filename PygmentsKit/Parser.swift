@@ -72,25 +72,28 @@ public class Parser {
         for line in output.components(separatedBy: .newlines) {            
             let lineSplit = line.components(separatedBy: "\t")
             guard lineSplit.count == 2 else {
-                // we are expecting two components
+                // we are expecting two components, bypass line
                 continue
             }
             
-            let kindStr = lineSplit[0]
             let payloadStr = lineSplit[1]
-            
-            guard let kind = Token.Kind(rawValue: kindStr) else {
-                // Unknown token
-                //print("Unknown token kind \(kindStr)")
-                continue
-            }
-            
+
             // all payload is preceded with u' and ends in '
             // NOTE: the statement above is false due to patch
             guard payloadStr.characters.count >= 2 && payloadStr.characters.count % 2 == 0 else {
                 // We don't have enough characters in the payload, missing the unicode string.
                 print("Not enough characters in payload \(payloadStr)")
-                continue
+                
+                // bail out on malformed input
+                break
+            }
+
+            let kindStr = lineSplit[0]
+            
+            var kind: Token.Kind? = Token.Kind(rawValue: kindStr)
+            if kind == nil {
+                // we shouldn't bypass unknown tokens
+                kind = .generic
             }
             
             var data = Data()
@@ -133,10 +136,11 @@ public class Parser {
             }
             
             guard let payload = String(data: data, encoding: .utf8) else {
-                continue
+                // bail out on malformed input
+                break
             }
             
-            tokens.append(Token(kind: kind, payload: payload))
+            tokens.append(Token(kind: kind!, payload: payload))
         }
         
         
@@ -279,10 +283,14 @@ public class AttributedParser {
             if let background = scope.background {
                 attributes[NSBackgroundColorAttributeName] = background
             }
+            
             // Ignore font styles for now.
             // TODO: Don't ignore font styles 
 //            if let fontStyles = scope.fontStyles {
 //            }
+            
+            // do not propagate not affected ranges
+            guard !attributes.isEmpty else { return true }
             
             // emit range and attributes
             return callback(range, token, attributes)

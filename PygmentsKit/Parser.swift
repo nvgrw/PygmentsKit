@@ -215,18 +215,7 @@ public class Parser {
         
         // Get standard output from
         let stdout = Pipe()
-        var stdoutData = Data()
         let stderr = Pipe()
-        var stderrData = Data()
-        
-        // Set up handlers
-        stdout.fileHandleForReading.readabilityHandler = { (handle) -> Void in
-            stdoutData.append(handle.availableData)
-        }
-        
-        stderr.fileHandleForReading.readabilityHandler = { (handle) -> Void in
-            stderrData.append(handle.availableData)
-        }
         
         // Set up the pipes
         pyg.standardOutput = stdout
@@ -235,12 +224,11 @@ public class Parser {
         // Launch pygmentize
         pyg.launch()
         
+        var stdoutData = stdout.fileHandleForReading.readDataToEndOfFile()
+        var stderrData = stderr.fileHandleForReading.readDataToEndOfFile()
+
         // Wait until we're done
         pyg.waitUntilExit()
-        
-        // Reset the handlers
-        stdout.fileHandleForReading.readabilityHandler = nil
-        stderr.fileHandleForReading.readabilityHandler = nil
         
         guard pyg.terminationStatus == 0 else {
             // We encountered some kind of problem

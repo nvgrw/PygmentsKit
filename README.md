@@ -10,7 +10,7 @@ PygmentsKit is a small Cocoa framework that wraps `pygmentize` to obtain pygment
 ### Carthage
 Add the following line to your project's Cartfile:
 ```
-github "notronik/PygmentsKit" "master"
+github "nvgrw/PygmentsKit" "master"
 ```
 
 Then run `carthage update` and add the PygmentsKit.framework files to your project.

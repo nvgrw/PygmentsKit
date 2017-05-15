@@ -25,7 +25,7 @@ import PygmentsKit
 
 class ViewController: NSViewController {
 
-    @IBOutlet weak var textView: NSTextView!
+    @IBOutlet var textView: NSTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,8 @@ class ViewController: NSViewController {
         
         try! AttributedParser.parse(textView.textStorage!.string, with: "swift", theme: theme) { (range, _, attributes) in
             self.textView.textStorage!.addAttributes(attributes, range: range)
+            
+            return true
         }
     }
 
